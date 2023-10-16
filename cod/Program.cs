@@ -56,11 +56,15 @@ namespace StareCarucior
                         List<Produs>listaProduse=new List<Produs>();
                         for(int i=0; i<nr; i++)
                         {
+                            Console.WriteLine("Introduceti codul produsului: ");
+                            string cod=Console.ReadLine();
                             Console.WriteLine("Introduceti denumirea produsului: ");
                             string denumire=Console.ReadLine();
+                            Console.WriteLine("Introduceti pretul produsului: ");
+                            double pret=double.Parse(Console.ReadLine());
                             Console.WriteLine("Introduceti cantitatea produsului: ");
                             double cantitate=double.Parse(Console.ReadLine());
-                            Produs produs=new Produs(cantitate,denumire);
+                            Produs produs=new Produs(cod,denumire,pret,cantitate);
                             listaProduse.Add(produs);
                         }
 
@@ -110,11 +114,15 @@ namespace StareCarucior
                                     List<Produs>listaProduse=new List<Produs>();
                                     for(int i=0; i<nr; i++)
                                     {
+                                    Console.WriteLine("Introduceti codul produsului: ");
+                                    string cod=Console.ReadLine();
                                     Console.WriteLine("Introduceti denumirea produsului: ");
                                     string denumire=Console.ReadLine();
+                                    Console.WriteLine("Introduceti pretul produsului: ");
+                                    double pret=double.Parse(Console.ReadLine());
                                     Console.WriteLine("Introduceti cantitatea produsului: ");
                                     double cantitate=double.Parse(Console.ReadLine());
-                                    Produs produs=new Produs(cantitate,denumire);
+                                    Produs produs=new Produs(cod,denumire,pret,cantitate);
                                     listaProduse.Add(produs);
                                     }
                                     unvalidatedCos.carucior.ListaProduse=listaProduse;

@@ -1,4 +1,4 @@
-
+using Exceptions;
 using System.IO.Compression;
 using System.Text.RegularExpressions;
 
@@ -11,16 +11,16 @@ private ValidRegistrationStreet(string value)
         Value=value;
     }    
     else {
-    //throw new InvalidRegistrationCityException();
+    //throw new InvalidRegistrationStreetException();
     }
 }
-public static bool TryParse(string value,out ValidRegistrationStreet validRegistrationCity){
+public static bool TryParse(string value,out ValidRegistrationStreet validRegistrationStreet){
 bool valid = false;
-validRegistrationCity = null;
+validRegistrationStreet = null;
     if(isValid(value))
     {
         valid=true;
-        validRegistrationCity=new(value);
+        validRegistrationStreet=new(value);
     }
     return valid;
 }

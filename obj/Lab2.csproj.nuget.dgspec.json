@@ -1,25 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\palam\\OneDrive\\Desktop\\Aplicatii Facultate\\An 4 sem 1\\PSSC\\pssc\\Lab2\\Lab2.csproj": {}
+    "C:\\Users\\rebec\\Documents\\Git\\PSSC\\Lab2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\palam\\OneDrive\\Desktop\\Aplicatii Facultate\\An 4 sem 1\\PSSC\\pssc\\Lab2\\Lab2.csproj": {
+    "C:\\Users\\rebec\\Documents\\Git\\PSSC\\Lab2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\palam\\OneDrive\\Desktop\\Aplicatii Facultate\\An 4 sem 1\\PSSC\\pssc\\Lab2\\Lab2.csproj",
+        "projectUniqueName": "C:\\Users\\rebec\\Documents\\Git\\PSSC\\Lab2.csproj",
         "projectName": "Lab2",
-        "projectPath": "C:\\Users\\palam\\OneDrive\\Desktop\\Aplicatii Facultate\\An 4 sem 1\\PSSC\\pssc\\Lab2\\Lab2.csproj",
-        "packagesPath": "C:\\Users\\palam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\palam\\OneDrive\\Desktop\\Aplicatii Facultate\\An 4 sem 1\\PSSC\\pssc\\Lab2\\obj\\",
+        "projectPath": "C:\\Users\\rebec\\Documents\\Git\\PSSC\\Lab2.csproj",
+        "packagesPath": "C:\\Users\\rebec\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rebec\\Documents\\Git\\PSSC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\palam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\rebec\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

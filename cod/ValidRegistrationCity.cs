@@ -1,4 +1,4 @@
-
+using Exceptions;
 using System.IO.Compression;
 using System.Text.RegularExpressions;
 
@@ -11,7 +11,7 @@ private ValidRegistrationCity(string value)
         Value=value;
     }    
     else {
-    //throw new InvalidRegistrationCityException();
+       throw new InvalidRegistrationCityException();
     }
 }
 public static bool TryParse(string value,out ValidRegistrationCity validRegistrationCity){
