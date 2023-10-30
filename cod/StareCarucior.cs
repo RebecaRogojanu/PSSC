@@ -1,5 +1,4 @@
 ﻿using CSharp.Choices;
-
 namespace StareCarucior.Domain
 {
     [AsChoice]

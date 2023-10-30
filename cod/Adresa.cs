@@ -1,8 +1,8 @@
 namespace StareCarucior.Domain{
     public record Adresa
     {
-        public string strada { get; set; }
-        public string oras { get; set; }
+        public string strada { get; init; }
+        public string oras { get; init; }
         public Adresa(string strada,string oras)
         {
             this.strada=strada;

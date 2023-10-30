@@ -1,18 +1,12 @@
 namespace StareCarucior.Domain
 {
     public record Carucior{
-        private string idCarucior{get;init;}
-        public string IdCarucior{get => idCarucior;}
-        private List<Produs>listaProduse{get;set;}
-        public List<Produs>ListaProduse{set => listaProduse = value;}
-
-        public Carucior(string idCarucior)
+        private Stare.iStare stare{get; init;}
+        private List<Produs> listaProduse{get; init;}
+        public List<Produs> ListaProdus{get => listaProduse;}
+        public Carucior(string idCarucior, Stare.iStare stare)
         {
-            this.idCarucior=idCarucior;
-        }
-        public Carucior(string idCarucior,List<Produs>listaProduse)
-        {
-            this.idCarucior=idCarucior;
+            this.stare=stare;
             this.listaProduse=listaProduse;
         }
     }
