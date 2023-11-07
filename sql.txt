@@ -53,8 +53,7 @@ CREATE TABLE [dbo].[ProdusList] (
     [ProdusListId] [int] NOT NULL,
     [ProdusId] [int] NOT NULL,
     [Number] [int] NOT NULL,
-    CONSTRAINT [FK_ProdusList_Produs] FOREIGN KEY ([ProdusId]) REFERENCES [dbo].[Produs]([ProdusId])
-) ON [PRIMARY];
+);
 
 ///////////////////////////////////////////////////////////////////
 
