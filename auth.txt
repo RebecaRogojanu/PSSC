@@ -1,0 +1,3 @@
+Server admin login dbadmin
+Password Pssc2023
+Server name serverpssc
