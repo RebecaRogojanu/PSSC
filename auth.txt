@@ -1,3 +1,5 @@
-Server admin login dbadmin
-Password Pssc2023
-Server name serverpssc
+Connection type Microsoft SQL Server
+Server:serverpssc.database.windows.net
+Authentification type: SQL Login
+User name: dbadmin
+Password: Pssc2023
