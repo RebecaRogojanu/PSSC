@@ -40,8 +40,7 @@ CREATE TABLE [dbo].[Produs] (
     [ProdusId] [int] IDENTITY(1,1) NOT NULL,
     [Cod_produs] [varchar](20) NOT NULL,
     [Denumire] [varchar](255) NOT NULL,
-    [Pret] [decimal](18, 2) NOT NULL,
-    [Cantitate] [decimal](18, 2) NOT NULL,
+    [Pret] [decimal](18, 2) NOT NULL
     CONSTRAINT [PK_Produs] PRIMARY KEY CLUSTERED (
         [ProdusId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
@@ -52,18 +51,28 @@ CREATE TABLE [dbo].[Produs] (
 CREATE TABLE [dbo].[ProdusList] (
     [ProdusListId] [int] NOT NULL,
     [ProdusId] [int] NOT NULL,
-    [Number] [int] NOT NULL,
+    [Cantitate] [decimal](18, 2) NOT NULL,
+    [ClientId] [int] NOT NULL
 );
+
+CREATE TABLE [dbo].[List] (
+    [ListId] [int] NOT NULL,
+    CONSTRAINT [PK_ListId] PRIMARY KEY CLUSTERED (
+         [ListId] ASC
+    ) 
+)ON [PRIMARY];
 
 ///////////////////////////////////////////////////////////////////
 
 CREATE TABLE [dbo].[Carucior] (
     [CaruciorId] [int] IDENTITY(1,1) NOT NULL,
-    [ProdusListId] [int] NOT NULL,
+    [ListId] [int] NOT NULL,
+    [ClientId] [int] NOT NULL,
     CONSTRAINT [PK_CaruciorId] PRIMARY KEY CLUSTERED (
-        [ProdusListId] ASC
+        [CaruciorId] ASC
     ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
-    CONSTRAINT [FK_ProdusList_Produs] FOREIGN KEY ([ProdusListId]) REFERENCES [dbo].[ProdusList]([ProdusListId])
+    CONSTRAINT [FK_Carucior_List] FOREIGN KEY ([ListId]) REFERENCES [dbo].[List]([ListId]),
+    CONSTRAINT [FK_Carucior_Client] FOREIGN KEY ([ClientId]) REFERENCES [dbo].[Client]([ClientId])
 ) ON [PRIMARY];
 
 ///////////////////////////////////////////////////////////////////
@@ -72,6 +81,7 @@ CREATE TABLE [dbo].[Comanda] (
     [ComandaId] [int] IDENTITY(1,1) NOT NULL,
     [CaruciorId] [int] NOT NULL,
     [ClientId] [int] NOT NULL,
+    [Status] [varchar](50) NOT NULL,
     [Total] [decimal](18, 2) NOT NULL,
     CONSTRAINT [PK_Comanda] PRIMARY KEY CLUSTERED (
         [ComandaId] ASC
@@ -79,3 +89,8 @@ CREATE TABLE [dbo].[Comanda] (
     CONSTRAINT [FK_Comanda_Carucior] FOREIGN KEY ([CaruciorId]) REFERENCES [dbo].[Carucior]([CaruciorId]),
     CONSTRAINT [FK_Comanda_Client] FOREIGN KEY ([ClientId]) REFERENCES [dbo].[Client]([ClientId])
 );
+
+/////////////////////////////////////////////////////////////////
+
+
+
