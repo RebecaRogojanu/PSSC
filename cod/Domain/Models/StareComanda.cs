@@ -8,9 +8,9 @@ namespace Domain.Models
     {
         public interface IStareComanda { }
 
-        public record Nevalidata(IReadOnlyCollection<Orders.UnvalidatedOrders> listaComenzi, string reason) : IStareComanda;
-        public record Validata(IReadOnlyCollection<Orders.ValidatedOrders> listaComenzi) : IStareComanda;
-        public record Anulata(IReadOnlyCollection<Orders.ValidatedOrders> listaComenzi) : IStareComanda;
-        public record Emisa(IReadOnlyCollection<Orders.ValidatedOrders> listaComenzi) : IStareComanda;
+        public record Nevalidata(IReadOnlyCollection<ComandaNevalidata> listaComenzi, string reason) : IStareComanda;
+        public record Validata(IReadOnlyCollection<ComandaValidata> listaComenzi) : IStareComanda;
+        public record Anulata(IReadOnlyCollection<ComandaValidata> listaComenzi) : IStareComanda;
+        public record Emisa(IReadOnlyCollection<ComandaValidata> listaComenzi) : IStareComanda;
     }
 }

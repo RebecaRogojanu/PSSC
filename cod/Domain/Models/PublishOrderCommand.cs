@@ -8,11 +8,11 @@ namespace Domain.Models
 {
     public record PublishOrderCommand
     {
-        public PublishOrderCommand(IReadOnlyCollection<UnvalidatedOrders> inputOrders)
+        public PublishOrderCommand(IReadOnlyCollection<ComandaNevalidata> inputOrders)
         {
             InputOrders = inputOrders;
         }
 
-        public IReadOnlyCollection<UnvalidatedOrders> InputOrders { get; }
+        public IReadOnlyCollection<ComandaNevalidata> InputOrders { get; }
     }
 }

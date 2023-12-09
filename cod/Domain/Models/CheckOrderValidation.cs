@@ -23,7 +23,7 @@ namespace Domain.Models
             }
             else
             {
-                //throw new InvalidStudentRegistrationNumberException("");
+                // throw new InvalidOrderCode("");
             }
         }
 

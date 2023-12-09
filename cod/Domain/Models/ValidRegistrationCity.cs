@@ -1,6 +1,8 @@
 using Exceptions;
+using LanguageExt;
 using System.IO.Compression;
 using System.Text.RegularExpressions;
+using static LanguageExt.Prelude;
 
 public record ValidRegistrationCity {
 private static readonly Regex ValidPattern = new("^[A-Z][a-zA-Z]*$");
@@ -14,15 +16,15 @@ private ValidRegistrationCity(string value)
        throw new InvalidRegistrationCityException();
     }
 }
-public static bool TryParse(string value,out ValidRegistrationCity validRegistrationCity){
-bool valid = false;
-validRegistrationCity = null;
+public static Option<ValidRegistrationCity>TryParse(string value) {
     if(isValid(value))
     {
-        valid=true;
-        validRegistrationCity=new(value);
+        return Some<ValidRegistrationCity>(new ValidRegistrationCity(value));
     }
-    return valid;
+    else
+    {
+        return None;
+    }
 }
 public override string ToString(){
         return Value.ToString();
