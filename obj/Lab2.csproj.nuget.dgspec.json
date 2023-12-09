@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\palam\\OneDrive\\Desktop\\Aplicatii Facultate\\An 4 sem 1\\PSSC\\Proiect\\PSSC\\Lab2.csproj": {}
+    "D:\\Programare\\Github\\PSSC\\Lab2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\palam\\OneDrive\\Desktop\\Aplicatii Facultate\\An 4 sem 1\\PSSC\\Proiect\\PSSC\\Lab2.csproj": {
+    "D:\\Programare\\Github\\PSSC\\Lab2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\palam\\OneDrive\\Desktop\\Aplicatii Facultate\\An 4 sem 1\\PSSC\\Proiect\\PSSC\\Lab2.csproj",
+        "projectUniqueName": "D:\\Programare\\Github\\PSSC\\Lab2.csproj",
         "projectName": "Lab2",
-        "projectPath": "C:\\Users\\palam\\OneDrive\\Desktop\\Aplicatii Facultate\\An 4 sem 1\\PSSC\\Proiect\\PSSC\\Lab2.csproj",
+        "projectPath": "D:\\Programare\\Github\\PSSC\\Lab2.csproj",
         "packagesPath": "C:\\Users\\palam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\palam\\OneDrive\\Desktop\\Aplicatii Facultate\\An 4 sem 1\\PSSC\\Proiect\\PSSC\\obj\\",
+        "outputPath": "D:\\Programare\\Github\\PSSC\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\palam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\palam\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -64,12 +58,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

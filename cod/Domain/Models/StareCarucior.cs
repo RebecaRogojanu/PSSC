@@ -1,6 +1,5 @@
 ﻿using CSharp.Choices;
-namespace StareCarucior.Domain
-{
+namespace Domain.Models {
     [AsChoice]
     public static partial class Stare { 
 

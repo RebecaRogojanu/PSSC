@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Exemple.Domain.Orders;
-
-namespace Exemple.Domain
+using Domain.Models;
+namespace Domain.Commands
 {
     public record PublishOrderCommand
     {
-        public PublishOrderCommand(IReadOnlyCollection<UnvalidatedOrders> inputOrders)
+        public PublishOrderCommand(IReadOnlyCollection<Orders.UnvalidatedOrders> inputOrders)
         {
             InputOrders = inputOrders;
         }
 
-        public IReadOnlyCollection<UnvalidatedOrders> InputOrders { get; }
+        public IReadOnlyCollection<Orders.UnvalidatedOrders> InputOrders { get; }
     }
 }

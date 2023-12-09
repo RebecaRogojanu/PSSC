@@ -1,13 +1,10 @@
-namespace StareCarucior.Domain
-{
+namespace Domain.Models {
     public record Produs{
-        private string idProdus{get; init;}
-        private double cantitate {get; set;}
-        public double Cantitate{get=>cantitate;}
-        private string denumire {get; set;}
-        private string cod_produs {get; set;} 
-        private double pret {get; set;}
-        public double Pret{get=>pret;}
+        public string idProdus { get; private init; }
+        public double cantitate { get; private set; }
+        public string denumire { get; private set; } 
+        public string cod_produs { get; private set; } 
+        public double pret { get; private set; }
 
         public Produs(string idProdus, string cod_produs, string denumire, double pret, double cantitate)
         {

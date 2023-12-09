@@ -5,8 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exemple.Domain
-{
+namespace Domain.Models {
     [AsChoice]
     public static partial class Orders
     {

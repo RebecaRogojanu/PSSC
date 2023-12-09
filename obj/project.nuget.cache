@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QE0ry3b8m7aIFBXinnrfaZqIu7ls9WC9SfbJCj/QIcj7IvC/UsoHic3lhNUVC9v+t+rV2wCjHhBe5YhDyia00Q==",
+  "dgSpecHash": "NmoDgf7ULwBKJhbEO2urBZz0pShrq96JK+UDNgblBUFMAwVmtJ2K89Df6NyCkOMkxeWJQ5t//si/U9NaFd58Fg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\palam\\OneDrive\\Desktop\\Aplicatii Facultate\\An 4 sem 1\\PSSC\\Proiect\\PSSC\\Lab2.csproj",
+  "projectFilePath": "D:\\Programare\\Github\\PSSC\\Lab2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\palam\\.nuget\\packages\\csharp.choices\\2.1.1\\csharp.choices.2.1.1.nupkg.sha512",
     "C:\\Users\\palam\\.nuget\\packages\\csharp.choices.attributes\\2.1.1\\csharp.choices.attributes.2.1.1.nupkg.sha512",
@@ -43,7 +43,11 @@
     "C:\\Users\\palam\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\palam\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\palam\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\palam\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+    "C:\\Users\\palam\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\palam\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.14\\microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\palam\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.14\\microsoft.windowsdesktop.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\palam\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.14\\microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\palam\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.14\\microsoft.netcore.app.host.win-x64.7.0.14.nupkg.sha512"
   ],
   "logs": []
 }
