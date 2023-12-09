@@ -1,22 +1,23 @@
-using Exemple.Domain;
-using StareCarucior.Domain;
+using Domain.Models;
+using Domain.Commands;
 using System;
-using static Exemple.Domain.OrderPublishEvent;
-using static Exemple.Domain.Orders;
 using LanguageExt;
+using static Domain.Models.OrderPublishEvent;
+using static Domain.Models.Orders;
+using static Domain.Models.StareComanda;
 
-namespace StareCarucior.Domain {
+namespace Domain.Workflows {
         public class PublishOrderWorkflow {
             public async Task<IOrderPublishedEvent> ExecuteAsync(PublishOrderCommand publishOrderCommand, Func<CheckOrderValidation, TryAsync<bool>>checkOrderExists) {
             UnvalidatedOrders unvalidatedOrder = new UnvalidatedOrders(publishOrderCommand.InputOrders);
-            StareComanda.iStareComanda comanda = await ValidatedOrders(checkOrderExists, unvalidatedOrder);
+            IStareComanda comanda = await ValidateOrders(checkOrderExists, unvalidatedOrder);
 
             // comanda=CalculateTotal(comanda);
             // comanda=PublishComanda(comanda);
             
             return comanda.Match(
-                whenNevalidata: unvalidatedOrder => new OrderPublishFailedEvent("Unexpected unvalid state") as IOrderGradesPublishedEvent,
-                whenValidata: validatatedOrder => new OrderPublishFailedEvent("Unexpected unvalid state"),
+                whenNevalidata: unvalidatedOrder => new OrderPublishedFailedEvent("Unexpected unvalid state") as IOrderGradesPublishedEvent,
+                whenValidata: validatatedOrder => new OrderPublishedFailedEvent("Unexpected unvalid state"),
                 whenAnulata: canceledOrder => new OrderCancelEvent(),
                 whenEmisa: emissedOrder => new OrderPublishSuccededEvent()
             );

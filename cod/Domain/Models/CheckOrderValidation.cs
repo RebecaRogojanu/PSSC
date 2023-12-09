@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Exemple.Domain
+namespace Domain.Models
 {
     public record CheckOrderValidation
     {

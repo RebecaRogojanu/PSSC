@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Models {
     [AsChoice]
-    public static partial class Orders
-    {
+    public static partial class Orders {
         public interface IOrders { }
 
-        public record UnvalidatedOrders: IOrders
+        public record UnvalidatedOrders : IOrders
         {
             public UnvalidatedOrders(IReadOnlyCollection<UnvalidatedOrders> orderList)
             {
@@ -33,7 +32,7 @@ namespace Domain.Models {
             public string Reason { get; }
         }
 
-        public record ValidatedOrders: IOrders
+        public record ValidatedOrders : IOrders
         {
             internal ValidatedOrders(IReadOnlyCollection<ValidatedOrders> orderList)
             {
