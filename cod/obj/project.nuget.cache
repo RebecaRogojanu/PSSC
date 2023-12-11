@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OzrSjbDrO2ExYCrC5AOykN+Wk7drBw9U3vqrvyEZ9Xu4VW0n5Wyn5c0vlBZJGOa7+QH6IZgcenKcgFukZnhNqQ==",
+  "dgSpecHash": "AxeHmLSthz200QKcR2YHRaQ87wjsM5MCqFLGD3y+Ni6kOnDq1jHtdX/d1lErz44IcKU1kL9suF/Wg+pDjFcOfw==",
   "success": true,
-  "projectFilePath": "D:\\Programare\\Github\\PSSC\\Lab2.csproj",
+  "projectFilePath": "D:\\Programare\\Github\\PSSC\\Cod\\Lab2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\palam\\.nuget\\packages\\csharp.choices\\2.1.1\\csharp.choices.2.1.1.nupkg.sha512",
     "C:\\Users\\palam\\.nuget\\packages\\csharp.choices.attributes\\2.1.1\\csharp.choices.attributes.2.1.1.nupkg.sha512",
@@ -16,10 +16,8 @@
     "C:\\Users\\palam\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.0\\microsoft.entityframeworkcore.8.0.0.nupkg.sha512",
     "C:\\Users\\palam\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.0\\microsoft.entityframeworkcore.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\palam\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.0\\microsoft.entityframeworkcore.analyzers.8.0.0.nupkg.sha512",
-    "C:\\Users\\palam\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.0\\microsoft.entityframeworkcore.relational.8.0.0.nupkg.sha512",
     "C:\\Users\\palam\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\palam\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.0\\microsoft.extensions.caching.memory.8.0.0.nupkg.sha512",
-    "C:\\Users\\palam\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\palam\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
     "C:\\Users\\palam\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\palam\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",

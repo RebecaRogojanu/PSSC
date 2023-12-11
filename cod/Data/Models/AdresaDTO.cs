@@ -1,7 +1,7 @@
 namespace Data.Models {
     public class AdresaDTO {
-        public string andresaId { get; set; }
-        public string strada { get; set; }
-        public string oras { get;  set; }
+        public string AndresaId { get; set; }
+        public string Strada { get; set; }
+        public string Oras { get;  set; }
     }
 }

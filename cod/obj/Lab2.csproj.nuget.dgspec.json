@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programare\\Github\\PSSC\\Lab2.csproj": {}
+    "D:\\Programare\\Github\\PSSC\\Cod\\Lab2.csproj": {}
   },
   "projects": {
     "D:\\Programare\\Github\\PSSC\\cod\\Data\\Context.csproj": {
@@ -63,14 +63,14 @@
         }
       }
     },
-    "D:\\Programare\\Github\\PSSC\\Lab2.csproj": {
+    "D:\\Programare\\Github\\PSSC\\Cod\\Lab2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programare\\Github\\PSSC\\Lab2.csproj",
+        "projectUniqueName": "D:\\Programare\\Github\\PSSC\\Cod\\Lab2.csproj",
         "projectName": "Lab2",
-        "projectPath": "D:\\Programare\\Github\\PSSC\\Lab2.csproj",
+        "projectPath": "D:\\Programare\\Github\\PSSC\\Cod\\Lab2.csproj",
         "packagesPath": "C:\\Users\\palam\\.nuget\\packages\\",
-        "outputPath": "D:\\Programare\\Github\\PSSC\\obj\\",
+        "outputPath": "D:\\Programare\\Github\\PSSC\\Cod\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\palam\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -110,10 +110,6 @@
               "version": "[4.4.7, )"
             },
             "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
               "version": "[8.0.0, )"
             }

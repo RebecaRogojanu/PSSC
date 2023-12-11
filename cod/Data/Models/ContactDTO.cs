@@ -1,7 +1,7 @@
 namespace Data.Models {
     public class ContactDTO {
-        public string contactId {get; set; }
-        public string telefon { get; set; }
-        public string email { get; set; }
+        public string ContactId {get; set; }
+        public string Telefon { get; set; }
+        public string Email { get; set; }
     }
 }

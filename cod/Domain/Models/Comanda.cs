@@ -5,9 +5,9 @@ public record Comanda {
         public Client client { get; private set; }
         public double total { get; private set; }
 
-        public Comanda(Carucior carcucior,Client client)
+        public Comanda(Carucior carucior,Client client)
         {
-            this.carucior=carcucior;
+            this.carucior=carucior;
             this.client=client;
         }
         public void calcTotal()

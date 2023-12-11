@@ -1,9 +1,9 @@
 namespace Data.Models {
     public class ComandaDTO {
-        public string comandaId { get; set; }
-        public string caruciorId { get; set; }
-        public string clientId { get; set; }
-        public string status { get; set; }
-        public decimal total { get; set; }
+        public string ComandaId { get; set; }
+        public string CaruciorId { get; set; }
+        public string ClientId { get; set; }
+        public string Status { get; set; }
+        public decimal Total { get; set; }
     }
 }
