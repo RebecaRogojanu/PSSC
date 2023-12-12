@@ -7,7 +7,7 @@ using static LanguageExt.Prelude;
 public record ValidRegistrationCity {
 private static readonly Regex ValidPattern = new("^[A-Z][a-zA-Z]*$");
 public string Value { get;}
-private ValidRegistrationCity(string value)
+internal ValidRegistrationCity(string value)
 {
     if (isValid(value)) {
         Value=value;

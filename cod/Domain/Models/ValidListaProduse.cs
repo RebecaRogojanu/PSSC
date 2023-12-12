@@ -30,5 +30,4 @@ private ValidListaProduse(List<Produs>listaProduse)
     {
         return ValidProdusCantitate.TryParse(cantitateString).IsSome;
     }
-
 }
