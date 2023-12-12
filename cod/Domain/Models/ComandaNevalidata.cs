@@ -1,3 +1,3 @@
 namespace Domain.Models {
-    public record ComandaNevalidata(Comanda comanda);
+    public record ComandaNevalidata(string oras, string strada);
 }

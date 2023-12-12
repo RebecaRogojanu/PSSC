@@ -1,5 +1,5 @@
 namespace Data.Models {
-    public class ProudsDTO {
+    public class ProdusDTO {
         public string ProdusId { get; set; }
         public string CodProdus { get; set; }
         public string Denumire { get; set; }

@@ -8,6 +8,7 @@ namespace Domain.Models
     {
         public interface IStareComanda { }
 
+        public record Invalida(IReadOnlyCollection<ComandaNevalidata> listaComenzi) : IStareComanda;
         public record Nevalidata(IReadOnlyCollection<ComandaNevalidata> listaComenzi, string reason) : IStareComanda;
         public record Validata(IReadOnlyCollection<ComandaValidata> listaComenzi) : IStareComanda;
         public record Anulata(IReadOnlyCollection<ComandaValidata> listaComenzi) : IStareComanda;

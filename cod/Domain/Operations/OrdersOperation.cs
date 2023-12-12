@@ -1,6 +1,6 @@
 using Domain.Models;
 using LanguageExt;
-using static Domain.Models.Orders;
+using static Domain.Models.Comanda;
 using static Domain.Models.StareComanda;
 using static LanguageExt.Prelude;
 
@@ -19,10 +19,10 @@ namespace Domain.Operations {
             unvalidatedOrder => ValidateOrder(checkOrderExists, unvalidatedOrder); 
 
         private static EitherAsync<string, ComandaValidata> ValidateOrder(Func<CheckOrderValidation, Option<CheckOrderValidation>> checkOrderExists, ComandaNevalidata unvalidatedOrders) =>
-            from oras in ValidRegistrationCity.TryParse(unvalidatedOrders.comanda.client.adresa.oras).ToEitherAsync($"Oras nevalid ({unvalidatedOrders.comanda.client.adresa.oras}, {unvalidatedOrders.comanda.client.adresa})")
-            from strada in ValidRegistrationStreet.TryParse(unvalidatedOrders.comanda.client.adresa.strada).ToEitherAsync($"Strada nevalida ({unvalidatedOrders.comanda.client.adresa.oras}, {unvalidatedOrders.comanda.client.adresa})")
-            from cantitate in ValidListaProduse.TryParse(unvalidatedOrders.comanda.carucior.listaProduse).ToEitherAsync($"Strada nevalida ({unvalidatedOrders.comanda.carucior.listaProduse}, {unvalidatedOrders.comanda.carucior.listaProduse})")
-            select new ComandaValidata(unvalidatedOrders.comanda.client.adresa, unvalidatedOrders.comanda.client.contact, unvalidatedOrders.comanda.carucior.listaProduse);
+            from oras in ValidRegistrationCity.TryParse(unvalidatedOrders.oras).ToEitherAsync($"Oras nevalid ({unvalidatedOrders.oras}, {unvalidatedOrders.oras})")
+            from strada in ValidRegistrationStreet.TryParse(unvalidatedOrders.strada).ToEitherAsync($"Strada nevalida ({unvalidatedOrders.strada}, {unvalidatedOrders.strada})")
+            // from cantitate in ValidListaProduse.TryParse(unvalidatedOrders.comanda.carucior.listaProduse).ToEitherAsync($"Strada nevalida ({unvalidatedOrders.comanda.carucior.listaProduse}, {unvalidatedOrders.comanda.carucior.listaProduse})")
+            select new ComandaValidata(oras, strada);
 
         private static Either<string, List<ComandaValidata>> CreateEmptyValatedOrdersList() =>
             Right(new List<ComandaValidata>());

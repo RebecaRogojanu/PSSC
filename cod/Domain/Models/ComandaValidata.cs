@@ -1,3 +1,5 @@
 namespace Domain.Models {
-    public record ComandaValidata(Adresa adresa, Contact contact, List<Produs> listaProduse);
+    public record ComandaValidata(ValidRegistrationCity ValidRegistrationCity, ValidRegistrationStreet ValidRegistrationStreet) {
+        public string ComandaId { get; set; }
+    }
 }

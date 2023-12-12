@@ -1,3 +1,3 @@
 namespace Domain.Models {
-    public record UnvalidatedCos(Carucior carucior,Client client);
+    public record UnvalidatedCos(String carucior,String client);
 }

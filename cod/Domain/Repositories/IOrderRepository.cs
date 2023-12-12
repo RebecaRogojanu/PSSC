@@ -6,8 +6,6 @@ namespace Domain.Repositories
 {
     public interface IOrderRepository
     {
-        TryAsync<List<Comanda>>TryGetExistingOrders();
-
-        TryAsync<Unit> TrySaveGrades(ComandaValidata comanda);
+        TryAsync<List<ComandaValidata>>TryGetExistingOrders();
     }
 }

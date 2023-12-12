@@ -7,7 +7,7 @@ using static LanguageExt.Prelude;
 public record ValidRegistrationStreet {
 private static readonly Regex ValidPattern = new("^[A-Z][a-zA-Z]* nr\\.[1-9]*$");
 public string Value { get;}
-private ValidRegistrationStreet(string value)
+internal ValidRegistrationStreet(string value)
 {
     if (isValid(value)) {
         Value=value;
