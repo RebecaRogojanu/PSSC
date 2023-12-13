@@ -1,182 +1,85 @@
 ﻿using System.Data;
 using System.Security.AccessControl;
-using StareCarucior.Domain;
+using Data.Context;
+using Data.Repository;
+using Domain;
+using Domain.Models;
+using Domain.Workflows;
+using Microsoft.Extensions.Logging;
 
-namespace StareCarucior
+namespace Program
 {
-    class Program{
-        private static readonly Random random = new Random();
+    class Program 
+    {
+        private static string ConnectionString = "Server=LAPTOP-5O6G7HEC\\DEVELOPER;Database=PSSC-sample;Trusted_Connection=True;MultipleActiveResultSets=true"; //replace
 
-        static void Main(string[] args)
-        {
-            List<Stare.Gol> golCarucior = new List<Stare.Gol>();
-            List<Stare.Validat> validCarucior = new List<Stare.Validat>();
-            List<Stare.Nevalidat> nevalidCarucior = new List<Stare.Nevalidat>();
-            List<Stare.Platit> platitCarucior = new List<Stare.Platit>();
-            while(true)
-            {
-                Console.WriteLine("Meniu");
-                Console.WriteLine("\n1.Creare carucior nou");
-                Console.WriteLine("\n2.Creare carucior nou si adaugare produse in el");
-                Console.WriteLine("\n3.Adaugare produse in carucior existent gol");
-                Console.WriteLine("\n4.Validare comanda");
-                Console.WriteLine("\n5.Plata comanda");
-                Console.WriteLine("\n6.Afisare carucioare si starea acestora");
-                Console.WriteLine("\n0.Iesire");
-                Console.WriteLine("\nOptiunea dorita: ");
-                int opt=int.Parse(Console.ReadLine());
-                switch(opt)
+        static async Task Main(string[] args) {
+            using ILoggerFactory loggerFactory = ConfigureLoggerFactory();
+            ILogger<PublishOrderWorkflow> logger = loggerFactory.CreateLogger<PublishOrderWorkflow>();
+            
+            var listaComenzi = ReadListOfOrders().toArray();
+            PublishOrderCommand command = new PublishOrderCommand(listaComenzi);
+            var dbContextBuilder = new DbContextOptionsBuilder<OrderContext>()
+                                                .useSqlServer(ConnectionString)
+                                                .UseLoggerFactory(loggerFactory);
+            OrderContext orderContext = new OrderContext(dbContextBuilder.options);
+            OrderRepository orderRepository = new OrderRepository(orderContext);
+
+            PublishOrderWorkflow workflow = new PublishOrderWorkflow(orderRepository, logger);
+            var result = await workflow.ExecuteAsync(command);
+
+             result.Match(
+                whenOrderPublishedFailedEvent: @event => 
                 {
-                    case 1: {
-                        Random random = new Random();
-                        string randomId=random.Next().ToString();
-                        Carucior carucior=new Carucior(randomId);
-
-                        randomId=random.Next().ToString();
-                        Console.WriteLine("Introduceti numele: ");
-                        string nume=Console.ReadLine();
-                        Console.WriteLine("Introduceti orasul: ");
-                        string oras=Console.ReadLine();
-                        Console.WriteLine("Introduceti strada: ");
-                        string strada=Console.ReadLine();
-                        Adresa adresa=new Adresa(strada,oras);
-                        Client client=new Client(randomId,nume,adresa);
-                        
-                        UnvalidatedCos unvalidatedCos=new UnvalidatedCos(carucior,client);
-                        Stare.Gol golState = new Stare.Gol(new List<UnvalidatedCos> { unvalidatedCos });
-                        golCarucior.Add(golState);
-                        break;
-                    }
-                    case 2: {
-                        Random random = new Random();
-                        string randomId=random.Next().ToString();
-
-                        Console.WriteLine("Introduceti numarul de produse: ");
-                        int nr=int.Parse(Console.ReadLine());
-                        List<Produs>listaProduse=new List<Produs>();
-                        for(int i=0; i<nr; i++)
-                        {
-                            Console.WriteLine("Introduceti codul produsului: ");
-                            string cod=Console.ReadLine();
-                            Console.WriteLine("Introduceti denumirea produsului: ");
-                            string denumire=Console.ReadLine();
-                            Console.WriteLine("Introduceti pretul produsului: ");
-                            double pret=double.Parse(Console.ReadLine());
-                            Console.WriteLine("Introduceti cantitatea produsului: ");
-                            double cantitate=double.Parse(Console.ReadLine());
-                            Produs produs=new Produs(cod,denumire,pret,cantitate);
-                            listaProduse.Add(produs);
-                        }
-
-                        Carucior carucior=new Carucior(randomId,listaProduse);
-                        randomId=random.Next().ToString();
-                        Console.WriteLine("Introduceti numele: ");
-                        string nume=Console.ReadLine();
-                        Console.WriteLine("Introduceti orasul: ");
-                        string oras=Console.ReadLine();
-                        Console.WriteLine("Introduceti strada: ");
-                        string strada=Console.ReadLine();
-                        Adresa adresa=new Adresa(strada,oras);
-                        Client client=new Client(randomId,nume,adresa);
-                        
-                        UnvalidatedCos unvalidatedCos=new UnvalidatedCos(carucior,client);
-                        Stare.Nevalidat nevalidat=new Stare.Nevalidat(new List<UnvalidatedCos>{unvalidatedCos},"asteptare confirmare");
-                        nevalidCarucior.Add(nevalidat);
-                        break;
-                    }
-                    case 3: {
-                        Console.WriteLine("Lista carucioare goale: ");
-                        int index=0;
-                        foreach (var golState in golCarucior)
-                        {
-                            index++;
-                            foreach (var unvalidatedCos in golState.listaCos)
-                            {     
-                                Console.WriteLine("Caruciorul cu numaru: "+index);           
-                                Console.WriteLine("\nId cos: " + unvalidatedCos.carucior.IdCarucior);
-                                Console.WriteLine("\nId client: " + unvalidatedCos.client.IdClient);
-                                Console.WriteLine("\nNume client: " + unvalidatedCos.client.Nume);
-                                Console.WriteLine("----------------------------------------------");
-                            }
-                        }
-                        Console.WriteLine("\nSelectati un carucior: ");
-                        int optiune=int.Parse(Console.ReadLine());
-                        index=0;
-                            foreach (var golState in golCarucior)
-                            {
-                                foreach (var unvalidatedCos in golState.listaCos)
-                                {    
-                                    index++;
-                                    if(index==optiune)
-                                    {
-                                    Console.WriteLine("Introduceti numarul de produse: ");
-                                    int nr=int.Parse(Console.ReadLine());
-                                    List<Produs>listaProduse=new List<Produs>();
-                                    for(int i=0; i<nr; i++)
-                                    {
-                                    Console.WriteLine("Introduceti codul produsului: ");
-                                    string cod=Console.ReadLine();
-                                    Console.WriteLine("Introduceti denumirea produsului: ");
-                                    string denumire=Console.ReadLine();
-                                    Console.WriteLine("Introduceti pretul produsului: ");
-                                    double pret=double.Parse(Console.ReadLine());
-                                    Console.WriteLine("Introduceti cantitatea produsului: ");
-                                    double cantitate=double.Parse(Console.ReadLine());
-                                    Produs produs=new Produs(cod,denumire,pret,cantitate);
-                                    listaProduse.Add(produs);
-                                    }
-                                    unvalidatedCos.carucior.ListaProduse=listaProduse;
-                                    Stare.Nevalidat nevalidatState = new Stare.Nevalidat(golState.listaCos, "produsele au fost adaugate");
-                                    nevalidCarucior.Add(nevalidatState);
-                                    }
-                                    else
-                                    {
-                                    Console.WriteLine("\nNu exista caruciorul cu indexul dorit");
-                                    }   
-                                }
-                            }                   
-                        break;
-                    }
-                    case 4: {
-                        break;
-                    }
-                     case 5: {
-                        break;
-                    }
-                    case 6: {
-                        Console.WriteLine("Lista carucioare goale: ");
-                        foreach (var golState in golCarucior)
-                        {
-                            foreach (var unvalidatedCos in golState.listaCos)
-                            {                
-                                Console.WriteLine("\nId cos: " + unvalidatedCos.carucior.IdCarucior);
-                                Console.WriteLine("\nId client: " + unvalidatedCos.client.IdClient);
-                                Console.WriteLine("\nNume client: " + unvalidatedCos.client.Nume);
-                                Console.WriteLine("----------------------------------------------");
-                            }
-                        }
-                        Console.WriteLine("Lista carucioare nevalide: ");
-                        foreach (var nevalidState in nevalidCarucior)
-                        {
-                            foreach (var unvalidatedCos in nevalidState.listaCos)
-                            {                
-                                Console.WriteLine("\nId cos: " + unvalidatedCos.carucior.IdCarucior);
-                                Console.WriteLine("\nId client: " + unvalidatedCos.client.IdClient);
-                                Console.WriteLine("\nNume client: " + unvalidatedCos.client.Nume);
-                                Console.WriteLine("----------------------------------------------");
-                            }
-                        }
-                        break;
-                    }
-                    case 0: {
-                       Environment.Exit(0);
-                       break;
-                    }
-                    default: Console.WriteLine("\nOptiune invalida!"); {
-                    break;
-                    }
+                    Console.WriteLine($"Publish failed: {@event.Reason}");
+                    return @event;
+                },
+                whenOrderPublishedScucceededEvent: @event =>
+                {
+                    Console.WriteLine($"Publish succeeded.");
+                    return @event;
                 }
-            }
+             );
+        }
+
+        private static ILoggerFactory ConfigureLoggerFactory()
+        {
+            return LoggerFactory.Create(builder =>
+                                builder.AddSimpleConsole(options =>
+                                {
+                                    options.IncludeScopes = true;
+                                    options.SingleLine = true;
+                                    options.TimestampFormat = "hh:mm:ss ";
+                                })
+                                .AddProvider(new Microsoft.Extensions.Logging.Debug.DebugLoggerProvider()));
+        }
+
+        private static List<ComandaNevalidata> ReadListOfOrders()
+        {
+            List<ComandaNevalidata> listOfOrders = new();
+            do
+            {
+                var strada = ReadValue("Strada: ");
+                if (string.IsNullOrEmpty(strada))
+                {
+                    break;
+                }
+
+                var oras = ReadValue("Oras: ");
+                if (string.IsNullOrEmpty(oras))
+                {
+                    break;
+                }
+
+                listOfOrders.Add(new(strada, oras));
+            } while (true);
+            return listOfOrders;
+        }
+
+        private static string? ReadValue(string prompt)
+        {
+            Console.Write(prompt);
+            return Console.ReadLine();
         }
     }
 }
