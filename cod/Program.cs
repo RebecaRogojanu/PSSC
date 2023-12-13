@@ -5,7 +5,13 @@ using Data.Repository;
 using Domain;
 using Domain.Models;
 using Domain.Workflows;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using static LanguageExt.Prelude;
+using LanguageExt;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace Program
 {
@@ -17,12 +23,12 @@ namespace Program
             using ILoggerFactory loggerFactory = ConfigureLoggerFactory();
             ILogger<PublishOrderWorkflow> logger = loggerFactory.CreateLogger<PublishOrderWorkflow>();
             
-            var listaComenzi = ReadListOfOrders().toArray();
+            var listaComenzi = ReadListOfOrders().ToList();
             PublishOrderCommand command = new PublishOrderCommand(listaComenzi);
             var dbContextBuilder = new DbContextOptionsBuilder<OrderContext>()
-                                                .useSqlServer(ConnectionString)
+                                                .UseSqlServer(ConnectionString)
                                                 .UseLoggerFactory(loggerFactory);
-            OrderContext orderContext = new OrderContext(dbContextBuilder.options);
+            OrderContext orderContext = new OrderContext(dbContextBuilder.Options);
             OrderRepository orderRepository = new OrderRepository(orderContext);
 
             PublishOrderWorkflow workflow = new PublishOrderWorkflow(orderRepository, logger);

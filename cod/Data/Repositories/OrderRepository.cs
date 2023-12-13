@@ -4,6 +4,7 @@ using LanguageExt;
 using Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 using static Domain.Models.StareComanda;
+using System.Linq;
 using Data.Models;
 namespace Data.Repository{
     public class OrderRepository : IOrderRepository
